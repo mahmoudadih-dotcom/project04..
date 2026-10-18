@@ -1,36 +1,44 @@
-/* Custom CSS Variables - Blue & White Theme */
+/* ==========================================
+   1. CSS VARIABLES (متغيرات الثيمات)
+   ========================================== */
 :root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f4f7fc;
-    --card-bg: #ffffff;
-    --text-primary: #0d1b2a;
-    --text-secondary: #4a5568;
-    --accent-blue: #1a73e8;
-    --accent-blue-hover: #1557b0;
+    /* الثيم الداكن (Dark Mode - الافتراضي) */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #38bdf8;
+    --border-color: #334155;
+    --card-hover: #26334d;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] {
+    /* الثيم الفاتح (Light Mode) */
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent-color: #0284c7;
     --border-color: #e2e8f0;
-    --shadow-color: rgba(13, 27, 42, 0.08);
+    --card-hover: #f1f5f9;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
 }
 
-/* Dark Theme Variables */
-[data-theme="dark"] {
-    --bg-primary: #0b1320;
-    --bg-secondary: #111a2e;
-    --card-bg: #17243b;
-    --text-primary: #f0f4f8;
-    --text-secondary: #a0aec0;
-    --accent-blue: #4285f4;
-    --accent-blue-hover: #669df6;
-    --border-color: #24344d;
-    --shadow-color: rgba(0, 0, 0, 0.3);
-}
-
-/* Base Styles */
+/* ==========================================
+   2. GLOBAL RESET & BASE STYLES
+   ========================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* انتقال سلس عند تغيير الألوان والثيم */
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth; /* تمرير ناعم عند ضغط روابط النافبار */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 body {
@@ -39,183 +47,150 @@ body {
     line-height: 1.6;
 }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
 .section {
-    padding: 80px 0;
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.alt-bg {
-    background-color: var(--bg-secondary);
-}
-
-.section-title {
-    text-align: center;
+h2 {
     font-size: 2rem;
-    margin-bottom: 40px;
-    color: var(--accent-blue);
-    position: relative;
+    margin-bottom: 24px;
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 8px;
 }
 
-.section-title::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: var(--accent-blue);
-    margin: 10px auto 0;
-    border-radius: 2px;
-}
-
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background-color: var(--bg-primary);
-    border-bottom: 1px solid var(--border-color);
+/* ==========================================
+   3. HEADER & NAVIGATION (FLEXBOX)
+   ========================================== */
+header {
     position: sticky;
     top: 0;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
     z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* محاذاة العناصر عمودياً في المنتصف */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 16px 20px;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
-}
-
-.logo span {
-    color: var(--accent-blue);
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--accent-color);
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 25px;
+    gap: 20px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-secondary);
-    font-weight: 600;
+    color: var(--text-primary);
+    font-weight: 500;
 }
 
 .nav-links a:hover {
-    color: var(--accent-blue);
+    color: var(--accent-color);
 }
 
-.theme-btn {
-    background-color: var(--accent-blue);
-    color: #ffffff;
-    border: none;
+/* زر التبديل */
+#theme-toggle {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
     padding: 8px 16px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: 600;
 }
 
-.theme-btn:hover {
-    background-color: var(--accent-blue-hover);
+#theme-toggle:hover {
+    border-color: var(--accent-color);
 }
 
-/* Hero Section */
-.hero-container {
+/* ==========================================
+   4. ABOUT ME SECTION
+   ========================================== */
+.about-container {
     display: flex;
     align-items: center;
     gap: 40px;
 }
 
-.hero-image img {
-    width: 220px;
-    height: 220px;
+.profile-img {
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--accent-blue);
-    box-shadow: 0 8px 24px var(--shadow-color);
+    border: 4px solid var(--accent-color);
+    box-shadow: var(--shadow);
 }
 
-.hero-text h2 {
+.about-text h1 {
     font-size: 2.5rem;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
-.highlight {
-    color: var(--accent-blue);
-}
-
-.subtitle {
-    font-size: 1.2rem;
+.about-text p {
     color: var(--text-secondary);
-    margin-bottom: 15px;
-    font-weight: 500;
+    font-size: 1.1rem;
 }
 
-.bio {
-    color: var(--text-secondary);
-    max-width: 600px;
-}
-
-/* Skills Grid */
+/* ==========================================
+   5. SKILLS GRID (CSS GRID + AUTO-FIT)
+   ========================================== */
 .skills-grid {
+    display: grid;
+    /* التوزيع الذكي المتكيف تلقائياً مع المساحة */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.skill-card {
+    background-color: var(--bg-secondary);
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+}
+
+.skill-card:hover {
+    background-color: var(--card-hover);
+    border-color: var(--accent-color);
+}
+
+/* ==========================================
+   6. PROJECT SHOWCASE
+   ========================================== */
+.projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
 }
 
-.skill-card {
-    background-color: var(--card-bg);
-    padding: 25px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 12px var(--shadow-color);
-}
-
-.skill-card h3 {
-    color: var(--accent-blue);
-    margin-bottom: 10px;
-}
-
-.skill-card p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-/* Projects Section */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
 .project-card {
-    background-color: var(--card-bg);
-    padding: 25px;
+    background-color: var(--bg-secondary);
+    padding: 24px;
     border-radius: 8px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 4px 12px var(--shadow-color);
-    display: flex;
-    flex-direction: column;
-}
-
-.project-tag {
-    align-self: flex-start;
-    background-color: rgba(26, 115, 232, 0.1);
-    color: var(--accent-blue);
-    font-size: 0.8rem;
-    font-weight: 700;
-    padding: 4px 8px;
-    border-radius: 4px;
-    margin-bottom: 15px;
+    box-shadow: var(--shadow);
 }
 
 .project-card h3 {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    color: var(--accent-color);
 }
 
 .project-card p {
@@ -223,138 +198,104 @@ body {
     font-size: 0.95rem;
 }
 
-/* Hobbies Section */
-.hobbies-container {
+/* ==========================================
+   7. HOBBIES & CONTACT FORM
+   ========================================== */
+.hobbies-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.hobbies-list li {
+    background-color: var(--bg-secondary);
+    padding: 12px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+form {
     display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-.hobby-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 30px;
-    border-radius: 8px;
-    text-align: center;
-    flex: 1;
-    min-width: 250px;
-    box-shadow: 0 4px 12px var(--shadow-color);
-}
-
-.hobby-icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 15px;
-}
-
-.hobby-card h3 {
-    margin-bottom: 10px;
-    color: var(--accent-blue);
-}
-
-.hobby-card p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-/* Contact Form */
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--card-bg);
-    padding: 30px;
+    flex-direction: column;
+    gap: 16px;
+    background-color: var(--bg-secondary);
+    padding: 24px;
     border-radius: 8px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 .form-group {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: var(--text-primary);
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid var(--border-color);
+form input, form textarea {
+    padding: 10px;
     border-radius: 6px;
+    border: 1px solid var(--border-color);
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    outline: none;
+    font-size: 1rem;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--accent-blue);
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
 }
 
 .submit-btn {
-    width: 100%;
-    padding: 12px;
-    background-color: var(--accent-blue);
+    background-color: var(--accent-color);
     color: #ffffff;
     border: none;
+    padding: 12px;
     border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
+    font-weight: bold;
     cursor: pointer;
 }
 
 .submit-btn:hover {
-    background-color: var(--accent-blue-hover);
+    opacity: 0.9;
 }
 
-/* Footer */
-.footer {
-    padding: 30px 0;
-    border-top: 1px solid var(--border-color);
+/* ==========================================
+   8. FOOTER
+   ========================================== */
+footer {
     text-align: center;
+    padding: 24px;
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    margin-top: 40px;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.social-links a {
-    color: var(--accent-blue);
-    text-decoration: none;
-    margin-left: 15px;
-    font-weight: 600;
-}
-
-/* Responsive Design (Media Queries) */
+/* ==========================================
+   9. MEDIA QUERIES (RESPONSIVENESS FOR MOBILE)
+   ========================================== */
 @media (max-width: 768px) {
-    .navbar {
+    nav {
         flex-direction: column;
-        gap: 15px;
-        padding: 15px 20px;
+        gap: 12px;
     }
 
     .nav-links {
-        gap: 15px;
+        gap: 12px;
+        font-size: 0.9rem;
     }
 
-    .hero-container {
+    .about-container {
         flex-direction: column;
         text-align: center;
     }
 
-    .footer-content {
-        flex-direction: column;
-        gap: 15px;
+    .profile-img {
+        width: 140px;
+        height: 140px;
     }
 
-    .social-links a {
-        margin: 0 10px;
+    .about-text h1 {
+        font-size: 2rem;
     }
 }
