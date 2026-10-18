@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahmoud Adih - Personal Portfolio</title>
+    <!-- ربط ملف التنسيقات CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <nav>
+            <div class="logo">Mahmoud Adih</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <!-- زر التبديل بين الثيمات (Mandatory JS Feature) -->
+            <button id="theme-toggle" aria-label="Toggle Theme">🌙 Mode</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- About Me Section -->
+        <section id="about" class="section">
+            <div class="about-container">
+                <img src="assets/profile.jpeg" alt="Mahmoud Adih Profile Picture" class="profile-img">
+                <div class="about-text">
+                    <h1>Hi, I'm Mahmoud Adih</h1>
+                    <p>Developer & Automation Specialist passionate about web development, Linux, and AI workflows.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Grid Section -->
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">HTML5 & CSS3</div>
+                <div class="skill-card">JavaScript ES6+</div>
+                <div class="skill-card">Python</div>
+                <div class="skill-card">Linux & Bash</div>
+                <div class="skill-card">Git & GitHub</div>
+                <div class="skill-card">Automation (n8n)</div>
+            </div>
+        </section>
+
+        <!-- Project Showcase Section (Projects 00-03) -->
+       <!-- Project Showcase Section (Projects 00-03) -->
+        <section id="projects" class="section">
+            <h2>Projects Showcase</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 00 -->
+                <a href="https://github.com/mahmoudadih-dotcom/project00" target="_blank" class="project-card-link">
+                    <article class="project-card">
+                        <h3>Project 00: Personal Portfolio</h3>
+                        <p>Authentic, responsive personal portfolio website built with pure HTML5, CSS3, and JavaScript.</p>
+                    </article>
+                </a>
+
+                <!-- Project 01 -->
+                <a href="https://github.com/mahmoudadih-dotcom/project01" target="_blank" class="project-card-link">
+                    <article class="project-card">
+                        <h3>Project 01: Shell & Linux Utilities</h3>
+                        <p>Custom Bash automation scripts and workspace management utilities.</p>
+                    </article>
+                </a>
+
+                <!-- Project 02 -->
+                <a href="https://github.com/mahmoudadih-dotcom/project02" target="_blank" class="project-card-link">
+                    <article class="project-card">
+                        <h3>Project 02: Web Application</h3>
+                        <p>Interactive web application built with Vanilla JS focusing on DOM manipulation.</p>
+                    </article>
+                </a>
+
+                <!-- Project 03 -->
+                <a href="https://github.com/mahmoudadih-dotcom/project03" target="_blank" class="project-card-link">
+                    <article class="project-card">
+                        <h3>Project 03: Automation Agent</h3>
+                        <p>AI-driven automation workflows and integration pipelines.</p>
+                    </article>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Hobbies Section -->
+        <section id="hobbies" class="section">
+            <h2>Hobbies & Interests</h2>
+            <ul class="hobbies-list">
+                <li>💪 Calisthenics & Bodyweight Fitness</li>
+                <li>📹 Content Creation & Video Production</li>
+                <li>🏍️ Motorcycles & Automotive Tech</li>
+                <li>🇬🇧 English Language & Communication</li>
+            </ul>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact" class="section">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" required placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" rows="5" required placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2026 Mahmoud Adih. All rights reserved.</p>
+    </footer>
+    <div class="social-links">
+            <a href="https://github.com/mahmoudadih-dotcom" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/mahmoud-adih-a42258412" target="_blank">LinkedIn</a>
+            <a href="mailto:mahmoudadih@gmail.com">Email</a>
+        </div>
+
+    <!-- ربط
+    <script src="script.js"></script>
+</body>
+</html>
